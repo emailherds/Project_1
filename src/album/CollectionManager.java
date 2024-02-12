@@ -50,7 +50,7 @@ public class CollectionManager {
             Artist artist = new Artist(artistName, artistBorn);
 
             if(first.equals("A")){
-                Genre genre = Genre.valueOf(inputs[4]);
+                Genre genre = Genre.valueOf(inputs[4].toUpperCase());
                 String released = inputs[5];
                 Date release = new Date(Integer.parseInt(released.split("/")[0]), Integer.parseInt(released.split("/")[1]), Integer.parseInt(released.split("/")[2]));
                 Album album = new Album(title, artist, genre, release);
