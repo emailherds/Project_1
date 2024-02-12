@@ -177,7 +177,7 @@ public class Album {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Album album = (Album) o;
-        return Objects.equals(title, album.title) && Objects.equals(artist, album.artist);
+        return title.equals(album.title) && artist.equals(album.artist);
     }
 
     public static void main(String[] args){

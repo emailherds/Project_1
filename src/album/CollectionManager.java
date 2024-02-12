@@ -65,13 +65,12 @@ public class CollectionManager {
                     System.out.println("Date Released: " + released  +" is invalid.");
                     return;
                 }
-                //need to check
-                //An album with the same title and artist is already in the collection.
-                if(!release.isValid()){
+
+                if(collection.add(album))
+                    System.out.println(title + "(" + artistName + ":" + artistDOB + ")" + " added to the collection.");
+                else
                     System.out.println(title + "(" + artistName + ":" + artistDOB + ")" + " is already in the collection.");
-                    return;
-                }
-                collection.add(album);
+
             }
             else if(first.equals("D")){
                 collection.remove(collection.getAlbums()[collection.findA(title, artistName)]);

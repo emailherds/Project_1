@@ -64,9 +64,9 @@ public class Collection {
      @return true of false if album is added
      */
     public boolean add(Album album){
-        if(size == 0) {
+        if(size == 0)
             albums = new Album[4];
-        }else if(contains(album))
+        if(contains(album))
             return false;
         albums[size] = album;
         size++;
