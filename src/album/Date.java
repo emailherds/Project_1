@@ -1,4 +1,7 @@
-//@author Omkar Kadam, Colin Lee
+/**
+ Date class which contains month, day, and year of a date and checks if the date is valid and compares two dates
+ @author Omkar Kadam, Colin Lee
+ */
 
 package album;
 import java.util.Calendar;

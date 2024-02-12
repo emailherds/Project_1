@@ -1,4 +1,7 @@
-//@author Omkar Kadam, Colin Lee
+/**
+Class to run the project
+ @author Omkar Kadam, Colin Lee
+ */
 
 package album;
 

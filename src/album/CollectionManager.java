@@ -1,4 +1,7 @@
-////@author Omkar Kadam, Colin Lee
+///**
+// Collection Manager class which reads and stores user input appropriately and calls relevant methods to perform user commands
+// @author Omkar Kadam, Colin Lee
+// */
 //
 //package album;
 //
