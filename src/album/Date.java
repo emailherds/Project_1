@@ -1,4 +1,7 @@
-//@author Omkar Kadam, Colin Lee
+/**
+ Date class which contains month, day, and year of a date and checks if the date is valid and compares two dates
+ @author Omkar Kadam, Colin Lee
+ */
 
 package album;
 import java.util.Calendar;
@@ -125,26 +128,50 @@ public class Date implements Comparable<Date> {
         return 1;
     }
 
+    /**
+     Get year of date
+     @return year of date
+     */
     public int getYear() {
         return year;
     }
 
+    /**
+     Get month of date
+     @return month of date
+     */
     public int getMonth() {
         return month;
     }
 
+    /**
+     Get day of date
+     @return day of date
+     */
     public int getDay() {
         return day;
     }
 
+    /**
+     Set year of date
+     @param year year to set for date
+     */
     public void setYear(int year) {
         this.year = year;
     }
 
+    /**
+     Set month of date
+     @param month month to set for date
+     */
     public void setMonth(int month) {
         this.month = month;
     }
 
+    /**
+     Set day of date
+     @param day day to set for date
+     */
     public void setDay(int day) {
         this.day = day;
     }
