@@ -106,6 +106,8 @@ public class Collection {
      Prints all albums in collection/album array sorted by Date then title
      */
     public void printByDate(){
+        if(size == 0)
+            System.out.println("Collection is empty!");
         for(int i = 0; i < size; i++){
             Album min = albums[i];
             for(int j = i; j < size; j++){
@@ -128,6 +130,8 @@ public class Collection {
      Prints all albums in collection/album array sorted by genre, then artist
      */
     public void printByGenre(){
+        if(size == 0)
+            System.out.println("Collection is empty!");
         for(int i = 0; i < size; i++){
             Album min = albums[i];
             for(int j = i; j < size; j++){
@@ -150,6 +154,8 @@ public class Collection {
      Prints all albums in collection/album array sorted by average rating, then title
      */
     public void printByRating(){
+        if(size == 0)
+            System.out.println("Collection is empty!");
         for(int i = 0; i < size; i++){
             Album min = albums[i];
             for(int j = i; j < size; j++){
