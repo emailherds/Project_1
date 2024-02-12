@@ -20,16 +20,17 @@ public class Date implements Comparable<Date> {
     private int day;
 
     public Date(int month, int day, int year)  {
-        setYear(year);
         setMonth(month);
         setDay(day);
+        setYear(year);
     }
 
     public static void main(String[]args){
 //        Date date = new Date(03, 30,2004);
 //        System.out.println("Valid? :"+date.isValid());
-//        Date date2 = new Date(03, 29,2004);
+        Date date2 = new Date(03, 29,2004);
 //        System.out.println("Comparison: "+date.compareTo(date2));
+        System.out.println("Current: "+ date2.currentTime().getMonth());
     }
 
     //today or a future date. use Calendar class
@@ -49,6 +50,11 @@ public class Date implements Comparable<Date> {
         }
         return false;
     } //check if the date is a valid calendar date
+
+    public Date currentTime(){
+        Calendar calendar = Calendar.getInstance();
+        return new Date(calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.DAY_OF_MONTH),calendar.get(Calendar.YEAR));
+    }
 
     private boolean isDay(boolean leap){
         int days = 0;
