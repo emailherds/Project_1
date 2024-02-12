@@ -7,7 +7,7 @@ public class Rating {
     private Rating next;
 
     public Rating(int star){
-        this.star = star;
+        setStar(star);
     }
 
     public int getStar() {

@@ -11,10 +11,10 @@ public class Album {
     private Rating ratings; //a linked list of ratings
 
     public Album(String title, Artist artist, Genre genre, Date released) {
-        this.title = title;
-        this.artist = artist;
-        this.genre = genre;
-        this.released = released;
+        setTitle(title);
+        setArtist(artist);
+        setGenre(genre);
+        setReleased(released);
     }
 
     public void rate(int star) {
@@ -40,7 +40,7 @@ public class Album {
     } //compute the average ratings
 
     public void setAlbums(Album[] albums) {
-        //this.albums = albums;
+//        this.albums = albums;
     }
 
     public void setSize(int size) {
@@ -100,8 +100,23 @@ public class Album {
 
     @Override
     public String toString() {
-        //still need to add *(2)**(1)***(2)****(2)*****(3)
-        return "[" + title + "] " + "Released " + released + "[" + artist + ":" + artist.getBorn() + "] " + "[" + genre + "] Rating: " + "(average rating: " + avgRatings() + ")";
+        int[] ratingList = ratingsArr();
+        return "[" + title + "] " +
+                "Released " + released +
+                "[" + artist + ":" + artist.getBorn() + "] " +
+                "[" + genre + "] " +
+                "Rating: *(" + ratingList[0] + ")**(" + ratingList[1] + ")***(" + ratingList[2] + ")****(" + ratingList[3] + ")*****(" + ratingList[4] +
+                ")(average rating: " + avgRatings() + ")";
+    }
+
+    private int[] ratingsArr(){
+        Rating tempRatings = this.getRatings();
+        int[] ratingList = new int[5];
+        while(tempRatings != null){
+            ratingList[tempRatings.getStar()]++;
+            tempRatings = tempRatings.getNext();
+        }
+        return ratingList;
     }
 
     @Override
@@ -113,10 +128,10 @@ public class Album {
     }
 
     public static void main(String[] args){
-        Album a = new Album();
-        a.rate(1);
-        a.rate(2);
-        a.rate(3);
-        System.out.println(a.avgRatings());
+//        Album a = new Album();
+//        a.rate(1);
+//        a.rate(2);
+//        a.rate(3);
+//        System.out.println(a.avgRatings());
     }
 }

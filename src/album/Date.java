@@ -3,6 +3,7 @@
 package album;
 import java.util.Calendar;
 import java.text.DecimalFormat;
+import java.util.Queue;
 
 public class Date implements Comparable<Date> {
     public static final int QUADRENNIAL = 4;
@@ -15,56 +16,107 @@ public class Date implements Comparable<Date> {
     private int month;
     private int day;
 
-    public Date(int year, int month, int day){
-        this.year = year;
-        this.month = month;
-        this.day = day;
+    public Date(int month, int day, int year)  {
+        setYear(year);
+        setMonth(month);
+        setDay(day);
+    }
+
+    public static void main(String[]args){
+//        Date date = new Date(03, 30,2004);
+//        System.out.println("Valid? :"+date.isValid());
+//        Date date2 = new Date(03, 29,2004);
+//        System.out.println("Comparison: "+date.compareTo(date2));
     }
 
     //today or a future date. use Calendar class
     public boolean isValid(){
-        if(this.getMonth() <= 12 && isDay() && this.getYear() >= 1900){
+        boolean leap = false;
+        if(this.getYear() % QUADRENNIAL == 0){
+            if(this.getYear() % CENTENNIAL == 0) {
+                if(this.getYear() % QUATERCENTENNIAL == 0){
+                    leap = true;
+                }
+            }else{
+                leap = true;
+            }
+        }
+        if(this.getMonth() > 0 && this.getMonth() <= 12 && isDay(leap) && this.getYear() >= 0){
             return true;
         }
         return false;
     } //check if the date is a valid calendar date
 
-    private boolean isDay(){
+    private boolean isDay(boolean leap){
         int days = 0;
+        int february = 0;
+        if(leap)
+            february = 29;
+        else
+            february = 28;
         switch(this.getMonth()){
             case 1:
                 days = THIRTYONE;
+                break;
             case 2:
-                days = 28;
+                days = february;
+                break;
             case 3:
                 days = THIRTY;
+                break;
             case 4:
                 days = THIRTYONE;
+                break;
             case 5:
                 days = THIRTY;
+                break;
             case 6:
                 days = THIRTYONE;
+                break;
             case 7:
                 days = THIRTY;
+                break;
             case 8:
                 days = THIRTYONE;
+                break;
             case 9:
                 days = THIRTY;
+                break;
             case 10:
                 days = THIRTYONE;
+                break;
             case 11:
                 days = THIRTY;
+                break;
             case 12:
                 days = THIRTYONE;
+                break;
         }
-        if(this.getDay() <= days)
+        if(this.getDay() <= days && this.getDay() > 0)
             return true;
         return false;
     }
 
     @Override
     public int compareTo(Date o) {
-        return 0;
+        if(this.getYear() == o.getYear()){
+            if(this.getMonth() == o.getMonth()){
+                if(this.getDay() == o.getDay()){
+                    return 0;
+                }else if(this.getDay() < o.getDay()){
+                    return -1;
+                }else{
+                    return 1;
+                }
+            }else if(this.getMonth() < o.getMonth()){
+                return -1;
+            }else{
+                return 1;
+            }
+        }else if(this.getYear() < o.getYear()){
+            return -1;
+        }
+        return 1;
     }
 
     public int getYear() {

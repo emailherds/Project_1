@@ -65,15 +65,60 @@ public class Collection {
     }
 
     public void printByDate(){
-
+        for(int i = 0; i < size; i++){
+            Album min = albums[i];
+            for(int j = i; j < size; j++){
+                Album current = albums[j];
+                if(min.getReleased().compareTo(current.getReleased()) > 0){ //if min is greater than the current album
+                    min = albums[j];
+                }else if(min.getReleased().compareTo(current.getReleased()) == 0){
+                    if(min.getTitle().compareTo(current.getTitle()) > 0)
+                        min = albums[j];
+                }
+            }
+            Album temp = albums[i];
+            albums[i] = min;
+            min = temp;
+            System.out.println(albums[i].toString()+"\n");
+        }
     } //sort by release date, then title
 
     public void printByGenre(){
-
+        for(int i = 0; i < size; i++){
+            Album min = albums[i];
+            for(int j = i; j < size; j++){
+                Album current = albums[j];
+                if(min.getGenre().compareTo(current.getGenre()) > 0){ //if min is greater than the current album
+                    min = albums[j];
+                }else if(min.getGenre().compareTo(current.getGenre()) == 0){
+                    if(min.getArtist().compareTo(current.getArtist()) > 0)
+                        min = albums[j];
+                }
+            }
+            Album temp = albums[i];
+            albums[i] = min;
+            min = temp;
+            System.out.println(albums[i].toString()+"\n");
+        }
     } //sort by genre, then artist
 
     public void printByRating(){
-
+        for(int i = 0; i < size; i++){
+            Album min = albums[i];
+            for(int j = i; j < size; j++){
+                Album current = albums[j];
+                if(min.avgRatings() > current.avgRatings()){ //if min is greater than the current album
+                    min = albums[j];
+                }else if(min.avgRatings() == current.avgRatings()){
+                    if(min.getTitle().compareTo(current.getTitle()) > 0)
+                        min = albums[j];
+                }
+            }
+            Album temp = albums[i];
+            albums[i] = min;
+            min = temp;
+            System.out.println(albums[i].toString()+"\n");
+        }
     }//sort by average rating, then title
 
     public void setAlbums(Album[] albums) {
