@@ -52,7 +52,7 @@ public class Collection {
      @return true of false if album is in array
      */
     public boolean contains(Album album){
-        for(int i = 0; i < albums.length; i++)
+        for(int i = 0; i < size; i++)
             if(albums[i].equals(album))
                 return true;
         return false;
@@ -64,7 +64,9 @@ public class Collection {
      @return true of false if album is added
      */
     public boolean add(Album album){
-        if(contains(album))
+        if(size == 0) {
+            albums = new Album[4];
+        }else if(contains(album))
             return false;
         albums[size] = album;
         size++;

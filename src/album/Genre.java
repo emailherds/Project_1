@@ -6,9 +6,9 @@
 package album;
 
 public enum Genre {
-    Pop,
-    Country,
-    Classical,
-    Jazz,
-    Unknown
+    POP,
+    COUNTRY,
+    CLASSICAL,
+    JAZZ,
+    UNKNOWN
 }
