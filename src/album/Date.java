@@ -1,3 +1,5 @@
+//@author Omkar Kadam, Colin Lee
+
 package album;
 import java.util.Calendar;
 import java.text.DecimalFormat;
@@ -18,6 +20,8 @@ public class Date implements Comparable<Date> {
         this.month = month;
         this.day = day;
     }
+
+    //today or a future date. use Calendar class
     public boolean isValid(){
         if(this.getMonth() <= 12 && isDay() && this.getYear() >= 1900){
             return true;

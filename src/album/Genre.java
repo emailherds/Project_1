@@ -1,9 +1,11 @@
+//@author Omkar Kadam, Colin Lee
+
 package album;
 
 public enum Genre {
-    POP,
-    COUNTRY,
-    CLASSICAL,
-    JAZZ,
-    UNKNOWN
+    Pop,
+    Country,
+    Classical,
+    Jazz,
+    Unknown
 }

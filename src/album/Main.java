@@ -1,3 +1,5 @@
+//@author Omkar Kadam, Colin Lee
+
 package album;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or

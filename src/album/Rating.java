@@ -1,8 +1,14 @@
+//@author Omkar Kadam, Colin Lee
+
 package album;
 
 public class Rating {
     private int star;
     private Rating next;
+
+    public Rating(int star){
+        this.star = star;
+    }
 
     public int getStar() {
         return star;
