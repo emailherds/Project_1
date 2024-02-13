@@ -9,6 +9,7 @@ package album;
 public class Artist implements Comparable<Artist> {
     private String name;
     private Date born;
+
     /**
      Constructor for Artist class
      @param name name of artist
@@ -81,5 +82,32 @@ public class Artist implements Comparable<Artist> {
      */
     public void setBorn(Date born) {
         this.born = born;
+    }
+
+    /**
+     Testbed for Artist class
+     */
+    public static void main(String[]args){
+        Artist artist1 = new Artist("Baylor Swift", new Date(12,13,1989));
+        Artist artist2 = new Artist("Taylor Swift", new Date(12,13,1989));
+
+        Artist artist3 = new Artist("Taylor Swift", new Date(11,13,1988));
+        Artist artist4 = new Artist("Taylor Swift", new Date(12,13,1989));
+
+        Artist artist5 = new Artist("Taylor Swift", new Date(12,13,1989));
+        Artist artist6 = new Artist("Baylor Swift", new Date(12,13,1989));
+
+        Artist artist7 = new Artist("Taylor Swift", new Date(12,13,1989));
+        Artist artist8 = new Artist("Taylor Swift", new Date(11,13,1988));
+
+        Artist artist9 = new Artist("Taylor Swift", new Date(12,13,1989));
+        Artist artist10 = new Artist("Taylor Swift", new Date(12,13,1989));
+
+        System.out.println(artist1.compareTo(artist2));
+        System.out.println(artist3.compareTo(artist4));
+        System.out.println(artist5.compareTo(artist6));
+        System.out.println(artist7.compareTo(artist8));
+        System.out.println(artist9.compareTo(artist10));
+
     }
 }
