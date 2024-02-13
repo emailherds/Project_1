@@ -51,10 +51,14 @@ public class CollectionManager {
 
             if(first.equals("A")){
                 Genre genre = Genre.UNKNOWN;
-                try {
-                    genre = Genre.valueOf(inputs[4].toUpperCase());
-                }catch(IllegalArgumentException e){
+                boolean containsEnum = false;
+                for(Genre g: Genre.values()){
+                    if(g.equals(inputs[4].toUpperCase()))
+                        containsEnum = true;
                 }
+                if(containsEnum)
+                    genre = Genre.valueOf(inputs[4].toUpperCase());
+
                 String released = inputs[5];
                 Date release = new Date(Integer.parseInt(released.split("/")[0]), Integer.parseInt(released.split("/")[1]), Integer.parseInt(released.split("/")[2]));
                 Album album = new Album(title, artist, genre, release);
@@ -62,15 +66,11 @@ public class CollectionManager {
                 //Check if artist DOB is valid
                 if(!artistBorn.isValid()){
                     System.out.println("Artist DOB: " + artistDOB  +" is invalid.");
-                    return;
                 }
                 //Check if release date is valid
-                if(!release.isValid()){
+                else if(!release.isValid()){
                     System.out.println("Date Released: " + released  +" is invalid.");
-                    return;
-                }
-
-                if(collection.add(album))
+                }else if(collection.add(album))
                     System.out.println(title + "(" + artistName + ":" + artistDOB + ")" + " added to the collection.");
                 else
                     System.out.println(title + "(" + artistName + ":" + artistDOB + ")" + " is already in the collection.");
