@@ -5,16 +5,11 @@ package album;
 import java.util.Scanner;
 
 public class CollectionManager {
-
-    public static void main(String[] args) {
-
-    }
-
     /**
      Runs the collection manager and processes user input to modify the collection
-     @param collection
      */
-    public static void run(Collection collection) {
+    public static void run() {
+        Collection collection = new Collection();
         System.out.println("Collection Manager is up running.");
         Scanner sc = new Scanner(System.in);
         String curr = sc.nextLine();
