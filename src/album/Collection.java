@@ -28,9 +28,9 @@ public class Collection {
      @param artist artist of album searching for
      @return index of album in array
      */
-    public int findA(String title, Artist artist){
+    public int findA(String title, String artist){
         for(int i = 0; i < size; i++){
-            if(albums[i].getTitle().equalsIgnoreCase(title) && albums[i].getArtist().equals(artist))
+            if(albums[i].getTitle().equalsIgnoreCase(title) && albums[i].getArtist().getName().equalsIgnoreCase(artist))
                 return i;
         }
         return NOT_FOUND;
@@ -80,20 +80,22 @@ public class Collection {
      @param album album being removed
      @return true of false if album is removed
      */
-    public boolean remove(Album album){
-        if(!contains(album))
+    public boolean remove(Album album) {
+        if (!contains(album))
             return false;
+
         boolean hit = false;
-        for(int i = 0; i < size; i++) {
-            if(hit)
-                albums[i] = albums[i+1];
+        for (int i = 0; i < size; i++) {
             if (albums[i].equals(album)) {
-                albums[i] = albums[i+1];
                 hit = true;
             }
+            if (hit && i < size - 1) {
+                albums[i] = albums[i + 1];
+            }
         }
+        size--;
         return true;
-    } //false if the album doesn’t exist
+    }
 
     /**
      Rates an album

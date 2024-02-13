@@ -81,7 +81,12 @@ public class CollectionManager {
 
             }
             else if(first.equals("D")){
-                collection.remove(collection.getAlbums()[collection.findA(title, artist)]);
+                if(collection.findA(title, artistName) != -1) {
+                    collection.remove(collection.getAlbums()[collection.findA(title, artistName)]);
+                    System.out.println(title + "(" + artistName + ":" + artistDOB + ") removed from the collection.");
+                }
+                else
+                    System.out.println(title + "(" + artistName + ":" + artistDOB + ") is not in the collection");
             }
             else if(first.equals("R")){
                 int rating = Integer.parseInt(inputs[4]);
