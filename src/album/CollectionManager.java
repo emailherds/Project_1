@@ -81,10 +81,18 @@ public class CollectionManager {
 
             }
             else if(first.equals("D")){
-                collection.remove(collection.getAlbums()[collection.findA(title, artistName)]);
+                collection.remove(collection.getAlbums()[collection.findA(title, artist)]);
             }
             else if(first.equals("R")){
-                collection.rate(collection.getAlbums()[collection.findA(title, artistName)], Integer.parseInt(inputs[4]));
+                int rating = Integer.parseInt(inputs[4]);
+                if(rating < 1 || rating > 5)
+                    System.out.println("Invalid rating, rating scale is 1 to 5.");
+                else {
+                    Album album = collection.getAlbums()[collection.findA(title, artist)];
+                    collection.rate(album, rating);
+                    System.out.println("You rate " + rating + " for " + title + ":" + album.getReleased().getMonth() + "/" + album.getReleased().getDay() + "/" + album.getReleased().getYear()  + "(" + artistName + ")");
+                }
+
             }
             curr = sc.nextLine();
         }

@@ -28,9 +28,9 @@ public class Collection {
      @param artist artist of album searching for
      @return index of album in array
      */
-    public int findA(String title, String artist){
+    public int findA(String title, Artist artist){
         for(int i = 0; i < size; i++){
-            if(albums[i].getTitle().equalsIgnoreCase(title) && albums[i].getArtist().getName().equalsIgnoreCase(artist))
+            if(albums[i].getTitle().equalsIgnoreCase(title) && albums[i].getArtist().equals(artist))
                 return i;
         }
         return NOT_FOUND;
@@ -84,7 +84,7 @@ public class Collection {
         if(!contains(album))
             return false;
         boolean hit = false;
-        for(int i = 0; i < albums.length; i++) {
+        for(int i = 0; i < size; i++) {
             if(hit)
                 albums[i] = albums[i+1];
             if (albums[i].equals(album)) {
