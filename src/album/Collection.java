@@ -52,7 +52,6 @@ public class Collection {
      @return true of false if album is in array
      */
     public boolean contains(Album album){
-        System.out.println("SIZE: "+size);
         for(int i = 0; i < size; i++)
             if(albums[i].equals(album))
                 return true;
