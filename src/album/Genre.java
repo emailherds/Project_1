@@ -6,9 +6,16 @@
 package album;
 
 public enum Genre {
-    POP,
-    COUNTRY,
-    CLASSICAL,
-    JAZZ,
-    UNKNOWN
+    POP("Pop"),
+    COUNTRY("Country"),
+    CLASSICAL("Classical"),
+    JAZZ("Jazz"),
+    UNKNOWN("Unknown");
+
+    String displayName;
+
+    Genre(String displayName){
+        this.displayName = displayName;
+    }
 }
+

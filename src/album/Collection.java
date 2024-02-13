@@ -179,7 +179,6 @@ public class Collection {
     /**
      Prints all albums in collection/album array sorted by average rating, then title
      */
-
     public void printByRating() {
         if (size == 0) {
             System.out.println("Collection is empty!");
