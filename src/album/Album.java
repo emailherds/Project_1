@@ -5,7 +5,7 @@
 
 package album;
 
-import java.util.Objects;
+import java.text.DecimalFormat;
 
 public class Album {
     private String title;
@@ -13,6 +13,8 @@ public class Album {
     private Genre genre;
     private Date released;
     private Rating ratings; //a linked list of ratings
+
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     /**
      Constructor for Album class
@@ -144,13 +146,23 @@ public class Album {
      */
     @Override
     public String toString() {
-        int[] ratingList = ratingsArr();
         return "[" + title + "] " +
                 "Released " + released +
-                "[" + artist.getName() + ":" + artist.getBorn() + "] " +
-                "[" + genre.toString() + "] " +
-                "Rating: *(" + ratingList[0] + ")**(" + ratingList[1] + ")***(" + ratingList[2] + ")****(" + ratingList[3] + ")*****(" + ratingList[4] +
-                ")(average rating: " + avgRatings() + ")";
+                " [" + artist.getName() + ":" + artist.getBorn() + "] " +
+                "[" + genre.displayName + "] " +
+                "Rating: " + getRatingsString();
+    }
+
+    /**
+     Read ratings linked list and count number of star ratings for each star
+     @return int array of count of stars
+     */
+    private String getRatingsString(){
+        int[] ratingList = ratingsArr();
+        if(ratings == null)
+            return "none";
+        return "*(" + ratingList[0] + ")**(" + ratingList[1] + ")***(" + ratingList[2] + ")****(" + ratingList[3] + ")*****(" + ratingList[4] +
+        ")(average rating: " + df.format(avgRatings()) + ")";
     }
 
     /**

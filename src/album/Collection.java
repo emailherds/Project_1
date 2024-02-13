@@ -81,7 +81,6 @@ public class Collection {
      @return true of false if album is removed
      */
     public boolean remove(Album album) {
-        System.out.println("\n\n");
         if (!contains(album))
             return false;
 
@@ -156,10 +155,10 @@ public class Collection {
             int minIndex = i;
             for (int j = i + 1; j < size; j++) {
                 Album current = albums[j];
-                if (min.getGenre().compareTo(current.getGenre()) > 0){
+                if (min.getGenre().toString().compareTo(current.getGenre().toString()) > 0){
                     min = albums[j];
                     minIndex = j;
-                }else if(min.getGenre().compareTo(current.getGenre()) == 0 && min.getArtist().compareTo(current.getArtist()) > 0){
+                }else if(min.getGenre().toString().compareTo(current.getGenre().toString()) == 0 && min.getArtist().compareTo(current.getArtist()) > 0){
                     min = albums[j];
                     minIndex = j;
                 }
@@ -172,7 +171,7 @@ public class Collection {
         }
 
         for (int i = 0; i < size; i++) {
-            System.out.println(albums[i].toString() + "\n");
+            System.out.println(albums[i].toString());
         }
         System.out.println("* end of list *");
     }
@@ -180,7 +179,6 @@ public class Collection {
     /**
      Prints all albums in collection/album array sorted by average rating, then title
      */
-
     public void printByRating() {
         if (size == 0) {
             System.out.println("Collection is empty!");
@@ -188,24 +186,31 @@ public class Collection {
         }
         System.out.println("* Collection sorted by Rating/Title *");
         for (int i = 0; i < size; i++) {
-            Album min = albums[i];
-            int minIndex = i;
+            Album max = albums[i];
+            int maxIndex = i;
             for (int j = i + 1; j < size; j++) {
                 Album current = albums[j];
-                if (min.avgRatings() > current.avgRatings() || (min.avgRatings() == current.avgRatings() && min.getTitle().compareTo(current.getTitle()) > 0)) {
-                    min = albums[j];
-                    minIndex = j;
+                if (Double.toString(max.avgRatings()).equals("NaN") && !Double.toString(current.avgRatings()).equals("NaN")) {
+                    max = albums[j];
+                    maxIndex = j;
+                }else if(max.avgRatings() < current.avgRatings()){
+                    max = albums[j];
+                    maxIndex = j;
+                }
+                else if(Double.toString(max.avgRatings()).equals(Double.toString(current.avgRatings())) && max.getTitle().compareTo(current.getTitle()) > 0){
+                    max = albums[j];
+                    maxIndex = j;
                 }
             }
-            if (minIndex != i) {
+            if (maxIndex != i) {
                 Album temp = albums[i];
-                albums[i] = min;
-                albums[minIndex] = temp;
+                albums[i] = max;
+                albums[maxIndex] = temp;
             }
         }
 
         for (int i = 0; i < size; i++) {
-            System.out.println(albums[i].toString() + "\n");
+            System.out.println(albums[i].toString());
         }
         System.out.println("* end of list *");
     }
