@@ -41,7 +41,7 @@ public class Artist implements Comparable<Artist> {
     @Override
     public boolean equals(Object o) {
         Artist artist = (Artist) o;
-        return this.getName().equals(artist.getName()) && this.getBorn().compareTo(artist.getBorn()) == 0;
+        return this.getName().equalsIgnoreCase(artist.getName()) && this.getBorn().compareTo(artist.getBorn()) == 0;
     }
 
     /**
