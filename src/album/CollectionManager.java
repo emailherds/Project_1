@@ -81,8 +81,8 @@ public class CollectionManager {
 
             }
             else if(first.equals("D")){
-                if(collection.findA(title, artistName) != -1) {
-                    collection.remove(collection.getAlbums()[collection.findA(title, artistName)]);
+                if(collection.findA(title, artist) != -1) {
+                    collection.remove(collection.getAlbums()[collection.findA(title, artist)]);
                     System.out.println(title + "(" + artistName + ":" + artistDOB + ") removed from the collection.");
                 }
                 else
