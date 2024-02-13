@@ -88,19 +88,19 @@ public class Date implements Comparable<Date> {
                 days = february;
                 break;
             case 3:
-                days = THIRTY;
+                days = THIRTYONE;
                 break;
             case 4:
-                days = THIRTYONE;
+                days = THIRTY;
                 break;
             case 5:
-                days = THIRTY;
-                break;
-            case 6:
                 days = THIRTYONE;
                 break;
-            case 7:
+            case 6:
                 days = THIRTY;
+                break;
+            case 7:
+                days = THIRTYONE;
                 break;
             case 8:
                 days = THIRTYONE;
