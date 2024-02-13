@@ -175,7 +175,7 @@ public class Album {
     @Override
     public boolean equals(Object o) {
         Album album = (Album) o;
-        return this.getTitle().equalsIgnoreCase(album.getTitle()) && this.getArtist().getName().equalsIgnoreCase(album.getArtist().getName());
+        return this.getTitle().equalsIgnoreCase(album.getTitle()) && this.getArtist().equals(album.getArtist());
     }
 
     public static void main(String[] args){
