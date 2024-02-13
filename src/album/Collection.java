@@ -114,7 +114,7 @@ public class Collection {
             System.out.println("Collection is empty!");
             return;
         }
-
+        System.out.println("* Collection sorted by Released Date/Title *");
         for (int i = 0; i < size; i++) {
             Album min = albums[i];
             int minIndex = i;
@@ -138,6 +138,7 @@ public class Collection {
         for (int i = 0; i < size; i++) {
             System.out.println(albums[i].toString());
         }
+        System.out.println("* end of list *");
     }
 
     /**
@@ -148,7 +149,7 @@ public class Collection {
             System.out.println("Collection is empty!");
             return;
         }
-
+        System.out.println("* Collection sorted by Genre/Artist *");
         for (int i = 0; i < size; i++) {
             Album min = albums[i];
             int minIndex = i;
@@ -172,6 +173,7 @@ public class Collection {
         for (int i = 0; i < size; i++) {
             System.out.println(albums[i].toString() + "\n");
         }
+        System.out.println("* end of list *");
     }
 
     /**
@@ -183,7 +185,7 @@ public class Collection {
             System.out.println("Collection is empty!");
             return;
         }
-
+        System.out.println("* Collection sorted by Rating/Title *");
         for (int i = 0; i < size; i++) {
             Album min = albums[i];
             int minIndex = i;
@@ -204,6 +206,7 @@ public class Collection {
         for (int i = 0; i < size; i++) {
             System.out.println(albums[i].toString() + "\n");
         }
+        System.out.println("* end of list *");
     }
 
     /**

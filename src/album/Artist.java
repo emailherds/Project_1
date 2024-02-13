@@ -5,8 +5,6 @@
 
 package album;
 
-import java.util.Objects;
-
 
 public class Artist implements Comparable<Artist> {
     private String name;
@@ -50,10 +48,7 @@ public class Artist implements Comparable<Artist> {
      */
     @Override
     public String toString() {
-        return "Artist{" +
-                "name='" + name + '\'' +
-                ", born=" + born +
-                '}';
+        return name + ":" + born;
     }
 
     /**

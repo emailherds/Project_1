@@ -147,8 +147,8 @@ public class Album {
         int[] ratingList = ratingsArr();
         return "[" + title + "] " +
                 "Released " + released +
-                "[" + artist + ":" + artist.getBorn() + "] " +
-                "[" + genre + "] " +
+                "[" + artist.getName() + ":" + artist.getBorn() + "] " +
+                "[" + genre.toString() + "] " +
                 "Rating: *(" + ratingList[0] + ")**(" + ratingList[1] + ")***(" + ratingList[2] + ")****(" + ratingList[3] + ")*****(" + ratingList[4] +
                 ")(average rating: " + avgRatings() + ")";
     }
@@ -161,7 +161,7 @@ public class Album {
         Rating tempRatings = this.getRatings();
         int[] ratingList = new int[5];
         while(tempRatings != null){
-            ratingList[tempRatings.getStar()]++;
+            ratingList[tempRatings.getStar()-1]++;
             tempRatings = tempRatings.getNext();
         }
         return ratingList;

@@ -3,7 +3,6 @@
 package album;
 
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class CollectionManager {
 
@@ -20,7 +19,7 @@ public class CollectionManager {
         //loop till line is Q
         while(!curr.equals("Q")){
             //split line input into strings separated with comma, then put into variables
-            if(curr == "") {
+            if(curr.equals("")) {
                 curr = sc.nextLine();
                 continue;
             }
@@ -57,7 +56,7 @@ public class CollectionManager {
                 Genre genre = Genre.UNKNOWN;
                 boolean containsEnum = false;
                 for(Genre g: Genre.values()){
-                    if(g.equals(inputs[4].toUpperCase()))
+                    if(g.toString().equals(inputs[4].toUpperCase()))
                         containsEnum = true;
                 }
                 if(containsEnum)
@@ -93,9 +92,13 @@ public class CollectionManager {
                 if(rating < 1 || rating > 5)
                     System.out.println("Invalid rating, rating scale is 1 to 5.");
                 else {
-                    Album album = collection.getAlbums()[collection.findA(title, artist)];
-                    collection.rate(album, rating);
-                    System.out.println("You rate " + rating + " for " + title + ":" + album.getReleased().getMonth() + "/" + album.getReleased().getDay() + "/" + album.getReleased().getYear()  + "(" + artistName + ")");
+                    if(collection.findA(title, artist) == -1)
+                        System.out.println(title + "(" + artist + ") is not in the collection");
+                    else {
+                        Album album = collection.getAlbums()[collection.findA(title, artist)];
+                        collection.rate(album, rating);
+                        System.out.println("You rate " + rating + " for " + title + ":" + album.getReleased() + "(" + artistName + ")");
+                    }
                 }
 
             }
