@@ -30,11 +30,20 @@ public class Date implements Comparable<Date> {
     }
 
     public static void main(String[]args){
-//        Date date = new Date(03, 30,2004);
-//        System.out.println("Valid? :"+date.isValid());
-        Date date2 = new Date(03, 29,2004);
-//        System.out.println("Comparison: "+date.compareTo(date2));
-        System.out.println("Current: "+ date2.currentTime().getMonth());
+        Date date = new Date(11, 32,2006);
+        Date date2 = new Date(13, 21,2000);
+        Date date3 = new Date(2, 12,2024);
+        Date date4 = new Date(2, 22,2024);
+        Date date5 = new Date(11, 21,800);
+        Date date6 = new Date(11, 21,2000);
+        Date date7 = new Date(3, 5,2012);
+        System.out.println("Valid? :"+date.isValid());
+        System.out.println("Valid? :"+date2.isValid());
+        System.out.println("Valid? :"+date3.isValid());
+        System.out.println("Valid? :"+date4.isValid());
+        System.out.println("Valid? :"+date5.isValid());
+        System.out.println("Valid? :"+date6.isValid());
+        System.out.println("Valid? :"+date7.isValid());
     }
 
     /**
