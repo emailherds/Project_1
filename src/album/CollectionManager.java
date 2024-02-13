@@ -45,15 +45,19 @@ public class CollectionManager {
             String artistDOB = inputs[3];
             Date artistBorn = new Date(Integer.parseInt(artistDOB.split("/")[0]), Integer.parseInt(artistDOB.split("/")[1]), Integer.parseInt(artistDOB.split("/")[2]));
             Artist artist = new Artist(artistName, artistBorn);
-            if (first.equals("A")) {
-                add(inputs, title, artistName, artistDOB, artistBorn, artist, collection);
-            } else if (first.equals("D")) {
-                delete(inputs, title, artistName, artistDOB, artistBorn, artist, collection);
-            } else if (first.equals("R"))
-                rate(inputs, title, artistName, artistDOB, artistBorn, artist, collection);
+            commands(first, inputs, title, artistName, artistDOB, artistBorn, artist, collection);
             curr = sc.nextLine();
         }
         System.out.println("Collection Manager terminated.");
+    }
+
+    public static void commands(String first, String[] inputs, String title, String artistName, String artistDOB, Date artistBorn, Artist artist, Collection collection) {
+        if (first.equals("A")) {
+            add(inputs, title, artistName, artistDOB, artistBorn, artist, collection);
+        } else if (first.equals("D")) {
+            delete(inputs, title, artistName, artistDOB, artistBorn, artist, collection);
+        } else if (first.equals("R"))
+            rate(inputs, title, artistName, artistDOB, artistBorn, artist, collection);
     }
 
     public static void add(String[] inputs, String title, String artistName, String artistDOB, Date artistBorn, Artist artist, Collection collection) {

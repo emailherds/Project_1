@@ -14,6 +14,10 @@ public enum Genre {
 
     String displayName;
 
+    /**
+     *Sets display name
+     * @param displayName display name
+     */
     Genre(String displayName){
         this.displayName = displayName;
     }
