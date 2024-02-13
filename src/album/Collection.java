@@ -81,11 +81,6 @@ public class Collection {
      @return true of false if album is removed
      */
     public boolean remove(Album album) {
-        System.out.println("FIRST LIST:");
-        for (int i = 0; i < size; i++) {
-            System.out.println(albums[i].getTitle());
-        }
-        System.out.println("\n\n");
         if (!contains(album))
             return false;
 
@@ -97,11 +92,6 @@ public class Collection {
             if (hit && i < size - 1) {
                 albums[i] = albums[i + 1];
             }
-        }
-        System.out.println("2nd LIST:");
-
-        for (int i = 0; i < size; i++) {
-            System.out.println(albums[i].getTitle());
         }
         size--;
         return true;
@@ -119,74 +109,102 @@ public class Collection {
     /**
      Prints all albums in collection/album array sorted by Date then title
      */
-    public void printByDate(){
-        if(size == 0)
+    public void printByDate() {
+        if (size == 0) {
             System.out.println("Collection is empty!");
-        for(int i = 0; i < size; i++){
+            return;
+        }
+
+        for (int i = 0; i < size; i++) {
             Album min = albums[i];
-            for(int j = i; j < size; j++){
+            int minIndex = i;
+            for (int j = i + 1; j < size; j++) {
                 Album current = albums[j];
-                if(min.getReleased().compareTo(current.getReleased()) > 0){ //if min is greater than the current album
+                if (min.getReleased().compareTo(current.getReleased()) > 0){
                     min = albums[j];
-                }else if(min.getReleased().compareTo(current.getReleased()) == 0){
-                    if(min.getTitle().compareTo(current.getTitle()) > 0)
-                        min = albums[j];
+                    minIndex = j;
+                }else if(min.getReleased().compareTo(current.getReleased()) == 0 && min.getTitle().compareTo(current.getTitle()) > 0){
+                    min = albums[j];
+                    minIndex = j;
                 }
             }
-            Album temp = albums[i];
-            albums[i] = min;
-            min = temp;
-            System.out.println(albums[i].toString()+"\n");
+            if (minIndex != i) {
+                Album temp = albums[i];
+                albums[i] = min;
+                albums[minIndex] = temp;
+            }
         }
-    } //sort by release date, then title
+
+        for (int i = 0; i < size; i++) {
+            System.out.println(albums[i].toString());
+        }
+    }
 
     /**
      Prints all albums in collection/album array sorted by genre, then artist
      */
-    public void printByGenre(){
-        if(size == 0)
+    public void printByGenre() {
+        if (size == 0) {
             System.out.println("Collection is empty!");
-        for(int i = 0; i < size; i++){
+            return;
+        }
+
+        for (int i = 0; i < size; i++) {
             Album min = albums[i];
-            for(int j = i; j < size; j++){
+            int minIndex = i;
+            for (int j = i + 1; j < size; j++) {
                 Album current = albums[j];
-                if(min.getGenre().compareTo(current.getGenre()) > 0){ //if min is greater than the current album
+                if (min.getGenre().compareTo(current.getGenre()) > 0){
                     min = albums[j];
-                }else if(min.getGenre().compareTo(current.getGenre()) == 0){
-                    if(min.getArtist().compareTo(current.getArtist()) > 0)
-                        min = albums[j];
+                    minIndex = j;
+                }else if(min.getGenre().compareTo(current.getGenre()) == 0 && min.getArtist().compareTo(current.getArtist()) > 0){
+                    min = albums[j];
+                    minIndex = j;
                 }
             }
-            Album temp = albums[i];
-            albums[i] = min;
-            min = temp;
-            System.out.println(albums[i].toString()+"\n");
+            if (minIndex != i) {
+                Album temp = albums[i];
+                albums[i] = min;
+                albums[minIndex] = temp;
+            }
         }
-    } //sort by genre, then artist
+
+        for (int i = 0; i < size; i++) {
+            System.out.println(albums[i].toString() + "\n");
+        }
+    }
 
     /**
      Prints all albums in collection/album array sorted by average rating, then title
      */
-    public void printByRating(){
-        if(size == 0)
+
+    public void printByRating() {
+        if (size == 0) {
             System.out.println("Collection is empty!");
-        for(int i = 0; i < size; i++){
+            return;
+        }
+
+        for (int i = 0; i < size; i++) {
             Album min = albums[i];
-            for(int j = i; j < size; j++){
+            int minIndex = i;
+            for (int j = i + 1; j < size; j++) {
                 Album current = albums[j];
-                if(min.avgRatings() > current.avgRatings()){ //if min is greater than the current album
+                if (min.avgRatings() > current.avgRatings() || (min.avgRatings() == current.avgRatings() && min.getTitle().compareTo(current.getTitle()) > 0)) {
                     min = albums[j];
-                }else if(min.avgRatings() == current.avgRatings()){
-                    if(min.getTitle().compareTo(current.getTitle()) > 0)
-                        min = albums[j];
+                    minIndex = j;
                 }
             }
-            Album temp = albums[i];
-            albums[i] = min;
-            min = temp;
-            System.out.println(albums[i].toString()+"\n");
+            if (minIndex != i) {
+                Album temp = albums[i];
+                albums[i] = min;
+                albums[minIndex] = temp;
+            }
         }
-    }//sort by average rating, then title
+
+        for (int i = 0; i < size; i++) {
+            System.out.println(albums[i].toString() + "\n");
+        }
+    }
 
     /**
      Set albums array
