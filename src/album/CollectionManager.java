@@ -20,6 +20,10 @@ public class CollectionManager {
         //loop till line is Q
         while(!curr.equals("Q")){
             //split line input into strings separated with comma, then put into variables
+            if(curr == "") {
+                curr = sc.nextLine();
+                continue;
+            }
             String[] inputs = curr.split(",");
             String first = inputs[0];
             if(first.equals("PD")) {
