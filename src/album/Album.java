@@ -189,12 +189,4 @@ public class Album {
         Album album = (Album) o;
         return this.getTitle().equalsIgnoreCase(album.getTitle()) && this.getArtist().equals(album.getArtist());
     }
-
-    public static void main(String[] args){
-//        Album a = new Album();
-//        a.rate(1);
-//        a.rate(2);
-//        a.rate(3);
-//        System.out.println(a.avgRatings());
-    }
 }
