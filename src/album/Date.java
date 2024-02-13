@@ -84,49 +84,25 @@ public class Date implements Comparable<Date> {
      */
     private boolean isDay(boolean leap){
         int days = 0;
-        int february = 0;
+        int february;
         if(leap)
             february = 29;
         else
             february = 28;
-        switch(this.getMonth()){
-            case 1:
-                days = THIRTYONE;
-                break;
-            case 2:
-                days = february;
-                break;
-            case 3:
-                days = THIRTYONE;
-                break;
-            case 4:
-                days = THIRTY;
-                break;
-            case 5:
-                days = THIRTYONE;
-                break;
-            case 6:
-                days = THIRTY;
-                break;
-            case 7:
-                days = THIRTYONE;
-                break;
-            case 8:
-                days = THIRTYONE;
-                break;
-            case 9:
-                days = THIRTY;
-                break;
-            case 10:
-                days = THIRTYONE;
-                break;
-            case 11:
-                days = THIRTY;
-                break;
-            case 12:
-                days = THIRTYONE;
-                break;
-        }
+        days = switch (this.getMonth()) {
+            case 1 -> THIRTYONE;
+            case 2 -> february;
+            case 3 -> THIRTYONE;
+            case 4, 11 -> THIRTY;
+            case 5 -> THIRTYONE;
+            case 6 -> THIRTY;
+            case 7 -> THIRTYONE;
+            case 8 -> THIRTYONE;
+            case 9 -> THIRTY;
+            case 10 -> THIRTYONE;
+            case 12 -> THIRTYONE;
+            default -> days;
+        };
         if(this.getDay() <= days && this.getDay() > 0)
             return true;
         return false;
