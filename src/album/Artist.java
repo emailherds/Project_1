@@ -28,9 +28,9 @@ public class Artist implements Comparable<Artist> {
      */
     @Override
     public int compareTo(Artist o) {
-        if(!this.name.equalsIgnoreCase(o.getName()))
-            return this.name.compareTo(o.getName());
-        return this.born.compareTo(o.getBorn());
+        if(!this.getName().equalsIgnoreCase(o.getName()))
+            return this.getName().compareTo(o.getName());
+        return this.getBorn().compareTo(o.getBorn());
     }
 
     /**
@@ -40,10 +40,8 @@ public class Artist implements Comparable<Artist> {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
         Artist artist = (Artist) o;
-        return Objects.equals(name, artist.name) && Objects.equals(born, artist.born);
+        return this.getName().equals(artist.getName()) && this.getBorn().compareTo(artist.getBorn()) == 0;
     }
 
     /**

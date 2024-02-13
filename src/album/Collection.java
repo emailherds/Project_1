@@ -52,6 +52,7 @@ public class Collection {
      @return true of false if album is in array
      */
     public boolean contains(Album album){
+        System.out.println("SIZE: "+size);
         for(int i = 0; i < size; i++)
             if(albums[i].equals(album))
                 return true;
@@ -66,7 +67,7 @@ public class Collection {
     public boolean add(Album album){
         if(size == 0)
             albums = new Album[4];
-        if(contains(album))
+        else if(contains(album))
             return false;
         albums[size] = album;
         size++;
