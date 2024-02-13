@@ -14,6 +14,10 @@ public class CollectionManager {
         run(collection);
     }
 
+    /**
+     Runs the collection manager and processes user input to modify the collection
+     @param collection
+     */
     public static void run(Collection collection) {
         System.out.println("Collection Manager is up running.");
         Scanner sc = new Scanner(System.in);
@@ -59,6 +63,17 @@ public class CollectionManager {
         System.out.println("Collection Manager terminated.");
     }
 
+    /**
+     Adds an album to the collection from the user input
+
+     @param inputs a string array of inputs from the user
+     @param title the title of the album
+     @param artistName the name of the artist
+     @param artistDOB the date of birth of the artist
+     @param artistBorn the date of birth of the artist
+     @param artist the artist object
+     @param collection the collection of albums
+     */
     public static void add(String[] inputs, String title, String artistName, String artistDOB, Date artistBorn, Artist artist, Collection collection) {
         Genre genre = Genre.UNKNOWN;
         boolean containsEnum = false;
@@ -86,6 +101,17 @@ public class CollectionManager {
             System.out.println(title + "(" + artistName + ":" + artistDOB + ")" + " is already in the collection.");
     }
 
+    /**
+     Removes an album from the collection based on the user input
+
+     @param inputs a string array of inputs from the user
+     @param title the title of the album
+     @param artistName the name of the artist
+     @param artistDOB the date of birth of the artist
+     @param artistBorn the date of birth of the artist
+     @param artist the artist object
+     @param collection the collection of albums
+     */
     public static void delete(String[] inputs, String title, String artistName, String artistDOB, Date artistBorn, Artist artist, Collection collection) {
         if (collection.findA(title, artist) != -1) {
             collection.remove(collection.getAlbums()[collection.findA(title, artist)]);
@@ -93,6 +119,18 @@ public class CollectionManager {
         } else
             System.out.println(title + "(" + artistName + ":" + artistDOB + ") is not in the collection");
     }
+    /**
+     Rates an album in the collection from the user input
+
+     @param inputs a string array of inputs from the user
+     @param title the title of the album
+     @param artistName the name of the artist
+     @param artistDOB the date of birth of the artist
+     @param artistBorn the date of birth of the artist
+     @param artist the artist object
+     @param collection the collection of albums
+     */
+
     public static void rate(String[] inputs, String title, String artistName, String artistDOB, Date artistBorn, Artist artist, Collection collection) {
         int rating = Integer.parseInt(inputs[4]);
         if (rating < 1 || rating > 5)
