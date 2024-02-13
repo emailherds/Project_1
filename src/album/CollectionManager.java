@@ -1,4 +1,7 @@
-//@author Omkar Kadam, Colin Lee
+/**
+  Collection manager class; allows user input into the terminal through the run method and management of the collection
+  @author Omkar Kadam, Colin Lee
+ */
 
 package album;
 
