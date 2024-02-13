@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class CollectionManager {
 
     public static void main(String[] args) {
-        Collection collection = new Collection();
-        run(collection);
+
     }
 
-    public static void run(Collection collection) {
+    public static void run() {
+        Collection collection = new Collection();
         System.out.println("Collection Manager is up running.");
         Scanner sc = new Scanner(System.in);
         String curr = sc.nextLine();
