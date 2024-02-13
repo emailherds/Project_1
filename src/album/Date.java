@@ -151,6 +151,15 @@ public class Date implements Comparable<Date> {
     }
 
     /**
+     Prints date in mm/dd/yyyy format
+     @return string of date
+     */
+    @Override
+    public String toString() {
+        return month + "/" + day + "/" + year;
+    }
+
+    /**
      Get year of date
      @return year of date
      */
